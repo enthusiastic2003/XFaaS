@@ -175,7 +175,7 @@ def add_collect_logs_function():
 
 if __name__ == "__main__":
     wf_id = str(uuid.uuid4())
-    wf_name = push_user_dag_to_provenance(wf_id)
+    # wf_name = push_user_dag_to_provenance(wf_id)
     add_collect_logs_function()
     refactored_wf_id  = str(uuid.uuid4())
     generate_refactored_workflow(DAG_DEFINITION_FILE,USER_DIR,refactored_wf_id,wf_id)
