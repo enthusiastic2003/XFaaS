@@ -179,7 +179,7 @@ if __name__ == "__main__":
     add_collect_logs_function()
     refactored_wf_id  = str(uuid.uuid4())
     # generate_refactored_workflow(DAG_DEFINITION_FILE,USER_DIR,refactored_wf_id,wf_id)
-    wf_deployment_id = generate_deployment_logs(DAG_DEFINITION_FILE,USER_DIR,refactored_wf_id,wf_id)
+    # wf_deployment_id = generate_deployment_logs(DAG_DEFINITION_FILE,USER_DIR,refactored_wf_id,wf_id)
     deploy()
 
     # # generate JMX post deployment
@@ -205,7 +205,7 @@ if __name__ == "__main__":
     provenance_artifacts = {
         "workflow_id": wf_id,
         "refactored_workflow_id": refactored_wf_id,
-        "deployment_id": wf_deployment_id
+        # "deployment_id": wf_deployment_id
     }
 
     print("::Provenance Artifacts::")
