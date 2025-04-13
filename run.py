@@ -90,7 +90,7 @@ storage_account_name = 'xfaasstorage'
 queue_details = set_up()
 
 # create credentials file for aws
-create_aws_credentials_file()
+# create_aws_credentials_file()
 
 
 if option == '--partition':
