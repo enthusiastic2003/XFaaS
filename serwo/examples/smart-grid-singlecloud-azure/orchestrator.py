@@ -117,11 +117,35 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
     serwoObject = build_serwo_object(inp_dict).to_json()
     # user dag execution
-    cjks = yield context.call_activity("TaskA", serwoObject)
-    ejet = yield context.call_activity("TaskB", cjks)
-    ejet = insert_end_stats_in_metadata(ejet)
-    hdqu = yield context.call_activity("CollectLogs", ejet)
-    return hdqu
+    hboe = yield context.call_activity("TaskA", serwoObject)
+    qpzt = yield context.call_activity("TaskB", hboe)
+    tzam = yield context.call_activity("TaskC", qpzt)
+    snow = yield context.call_activity("TaskD", tzam)
+    gstj = yield context.call_activity("TaskM", snow)
+    jspb = yield context.call_activity("TaskN", gstj)
+    zscv = yield context.call_activity("TaskE", tzam)
+    wdqu = yield context.call_activity("TaskF", zscv)
+    hfnc = yield context.call_activity("TaskI", wdqu)
+    zmqy = []
+    feqd = context.call_activity("TaskG", wdqu)
+    lvfv = context.call_activity("TaskH", wdqu)
+    fsww = context.call_activity("TaskJ", hfnc)
+    zmqy.append(feqd)
+    zmqy.append(lvfv)
+    zmqy.append(fsww)
+    nsex = yield context.task_all(zmqy)
+    hxjv = []
+    kkxx = context.call_activity("TaskO", jspb)
+    ndyz = context.call_activity("TaskK", nsex)
+    hxjv.append(kkxx)
+    hxjv.append(ndyz)
+    cnvv = yield context.task_all(hxjv)
+    thbh = yield context.call_activity("TaskL", cnvv)
+    ekgb = yield context.call_activity("TaskP", thbh)
+    thiq = yield context.call_activity("TaskQ", ekgb)
+    thiq = insert_end_stats_in_metadata(thiq)
+    oukc = yield context.call_activity("CollectLogs", thiq)
+    return oukc
 
 
 main = df.Orchestrator.create(orchestrator_function)

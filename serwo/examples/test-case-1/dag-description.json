@@ -1,0 +1,29 @@
+{
+    "WorkflowName": "ring1",
+    "Nodes": [
+      {
+        "NodeId": "1",
+        "NodeName": "TaskA",
+        "Path": "examples/test-case-1/src/node1",
+        "EntryPoint": "node1.py",
+        "CSP": "Azure",
+        "AzureLocation": "",
+        "MemoryInMB": 128
+      },
+      {
+        "NodeId": "2",
+        "NodeName": "TaskB",
+        "Path": "examples/test-case-1/src/node2",
+        "EntryPoint": "node2.py",
+        "AzureLocation": "",
+        "CSP": "Azure",
+        "MemoryInMB": 256
+      }
+    ],
+    "Edges":[
+        {
+            "TaskA": ["TaskB"]
+        }
+    ]
+
+}

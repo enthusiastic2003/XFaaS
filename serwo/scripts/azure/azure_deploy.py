@@ -37,6 +37,11 @@ def deploy(storage,group,app,user_dir):
     stream.close()
     sleep(30)
     os.chdir(user_dir)
+    print(f"Deploying files from directory: {user_dir}")
+    print("Files to be deployed:")
+    for path in pathlib.Path(user_dir).rglob('*'):
+        print(path)
+
     print(f'User app created, deploying {app}')
     stream = os.popen(f'func azure functionapp publish {app}')
     stream.close()

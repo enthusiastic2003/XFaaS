@@ -1,0 +1,72 @@
+2025-04-14 06:43:44,410 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2025-04-14 06:43:44,428 INFO o.a.j.JMeter: Loading user properties from: /apache-jmeter-5.5/bin/user.properties
+2025-04-14 06:43:44,428 INFO o.a.j.JMeter: Loading system properties from: /apache-jmeter-5.5/bin/system.properties
+2025-04-14 06:43:44,432 INFO o.a.j.JMeter: Copyright (c) 1998-2022 The Apache Software Foundation
+2025-04-14 06:43:44,432 INFO o.a.j.JMeter: Version 5.5
+2025-04-14 06:43:44,432 INFO o.a.j.JMeter: java.version=11.0.26
+2025-04-14 06:43:44,432 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2025-04-14 06:43:44,432 INFO o.a.j.JMeter: os.name=Linux
+2025-04-14 06:43:44,432 INFO o.a.j.JMeter: os.arch=amd64
+2025-04-14 06:43:44,432 INFO o.a.j.JMeter: os.version=6.13.8-arch1-1
+2025-04-14 06:43:44,432 INFO o.a.j.JMeter: file.encoding=UTF-8
+2025-04-14 06:43:44,433 INFO o.a.j.JMeter: java.awt.headless=true
+2025-04-14 06:43:44,433 INFO o.a.j.JMeter: Max memory     =1073741824
+2025-04-14 06:43:44,433 INFO o.a.j.JMeter: Available Processors =12
+2025-04-14 06:43:44,439 INFO o.a.j.JMeter: Default Locale=English (EN)
+2025-04-14 06:43:44,440 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2025-04-14 06:43:44,440 INFO o.a.j.JMeter: JMeterHome=/apache-jmeter-5.5
+2025-04-14 06:43:44,440 INFO o.a.j.JMeter: user.dir  =/XFaaS
+2025-04-14 06:43:44,440 INFO o.a.j.JMeter: PWD       =/XFaaS
+2025-04-14 06:43:44,440 INFO o.a.j.JMeter: IP: 172.17.0.2 Name: 62b7887f64d4 FullName: 62b7887f64d4
+2025-04-14 06:43:44,447 INFO o.a.j.s.FileServer: Default base='/XFaaS'
+2025-04-14 06:43:44,447 INFO o.a.j.s.FileServer: Set new base='/XFaaS/serwo/examples/test-case-1/build/workflow/resources'
+2025-04-14 06:43:44,579 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2025-04-14 06:43:44,600 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2025-04-14 06:43:44,603 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2025-04-14 06:43:44,605 INFO o.a.j.s.SaveService: Loading file: serwo/examples/test-case-1/build/workflow/resources/jmx_client.jmx
+2025-04-14 06:43:44,646 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2025-04-14 06:43:44,646 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2025-04-14 06:43:44,646 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2025-04-14 06:43:44,646 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2025-04-14 06:43:44,646 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2025-04-14 06:43:44,646 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2025-04-14 06:43:44,664 INFO o.a.j.JMeter: Creating summariser <summary>
+2025-04-14 06:43:44,671 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2025-04-14 06:43:44,672 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2025-04-14 06:43:44,672 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2025-04-14 06:43:44,679 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2025-04-14 06:43:44,679 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2025-04-14 06:43:44,901 INFO o.a.j.JMeter: Running test (1744613024901)
+2025-04-14 06:43:44,913 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2025-04-14 06:43:44,913 INFO o.a.j.e.StandardJMeterEngine: Starting 2 threads for group Thread Group.
+2025-04-14 06:43:44,913 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2025-04-14 06:43:44,913 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=2 ramp-up=1 delayedStart=false
+2025-04-14 06:43:44,917 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2025-04-14 06:43:44,917 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2025-04-14 06:43:44,918 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2025-04-14 06:43:44,936 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = 62b7887f64d4
+2025-04-14 06:43:44,942 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2025-04-14 06:43:44,943 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2025-04-14 06:43:44,943 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
+2025-04-14 06:43:44,944 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2025-04-14 06:43:44,944 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2025-04-14 06:43:45,100 INFO o.a.j.p.h.s.h.LazyLayeredConnectionSocketFactory: Setting up HTTPS TrustAll Socket Factory
+2025-04-14 06:43:45,105 INFO o.a.j.u.JsseSSLManager: Using default SSL protocol: TLS
+2025-04-14 06:43:45,106 INFO o.a.j.u.JsseSSLManager: SSL session context: per-thread
+2025-04-14 06:43:45,218 INFO o.a.j.u.SSLManager: JmeterKeyStore Location:  type JKS
+2025-04-14 06:43:45,222 INFO o.a.j.u.SSLManager: KeyStore created OK
+2025-04-14 06:43:45,222 WARN o.a.j.u.SSLManager: Keystore file not found, loading empty keystore
+2025-04-14 06:43:45,416 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2025-04-14 06:44:01,240 INFO o.a.j.r.Summariser: summary +     17 in 00:00:16 =    1.0/s Avg:   282 Min:    56 Max:  2176 Err:    17 (100.00%) Active: 2 Started: 2 Finished: 0
+2025-04-14 06:44:31,235 INFO o.a.j.r.Summariser: summary +     30 in 00:00:30 =    1.0/s Avg:    60 Min:    55 Max:    77 Err:    30 (100.00%) Active: 2 Started: 2 Finished: 0
+2025-04-14 06:44:31,235 INFO o.a.j.r.Summariser: summary =     47 in 00:00:46 =    1.0/s Avg:   140 Min:    55 Max:  2176 Err:    47 (100.00%)
+2025-04-14 06:45:01,238 INFO o.a.j.r.Summariser: summary +     30 in 00:00:30 =    1.0/s Avg:    77 Min:    52 Max:   421 Err:    30 (100.00%) Active: 2 Started: 2 Finished: 0
+2025-04-14 06:45:01,239 INFO o.a.j.r.Summariser: summary =     77 in 00:01:16 =    1.0/s Avg:   116 Min:    52 Max:  2176 Err:    77 (100.00%)
+2025-04-14 06:45:31,232 INFO o.a.j.r.Summariser: summary +     30 in 00:00:30 =    1.0/s Avg:    58 Min:    52 Max:    82 Err:    30 (100.00%) Active: 2 Started: 2 Finished: 0
+2025-04-14 06:45:31,232 INFO o.a.j.r.Summariser: summary =    107 in 00:01:46 =    1.0/s Avg:    99 Min:    52 Max:  2176 Err:   107 (100.00%)
+2025-04-14 06:46:01,229 INFO o.a.j.r.Summariser: summary +     30 in 00:00:30 =    1.0/s Avg:    74 Min:    52 Max:   387 Err:    30 (100.00%) Active: 2 Started: 2 Finished: 0
+2025-04-14 06:46:01,229 INFO o.a.j.r.Summariser: summary =    137 in 00:02:16 =    1.0/s Avg:    94 Min:    52 Max:  2176 Err:   137 (100.00%)
+2025-04-14 06:46:31,233 INFO o.a.j.r.Summariser: summary +     30 in 00:00:30 =    1.0/s Avg:    54 Min:    50 Max:    73 Err:    30 (100.00%) Active: 2 Started: 2 Finished: 0
+2025-04-14 06:46:31,233 INFO o.a.j.r.Summariser: summary =    167 in 00:02:46 =    1.0/s Avg:    87 Min:    50 Max:  2176 Err:   167 (100.00%)
+2025-04-14 06:46:59,620 INFO o.a.j.r.ResultCollector: Shutdown hook started
+2025-04-14 06:46:59,620 INFO o.a.j.r.ResultCollector: Shutdown hook ended
