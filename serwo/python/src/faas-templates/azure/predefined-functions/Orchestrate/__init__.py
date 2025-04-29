@@ -117,11 +117,11 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
     serwoObject = build_serwo_object(inp_dict).to_json()
     # user dag execution
-    cjks = yield context.call_activity("TaskA", serwoObject)
-    ejet = yield context.call_activity("TaskB", cjks)
-    ejet = insert_end_stats_in_metadata(ejet)
-    hdqu = yield context.call_activity("CollectLogs", ejet)
-    return hdqu
+    eqgo = yield context.call_activity("InitialCall", serwoObject)
+    ltyq = yield context.call_activity("AdaptiveCall", eqgo)
+    ltyq = insert_end_stats_in_metadata(ltyq)
+    kxud = yield context.call_activity("CollectLogs", ltyq)
+    return kxud
 
 
 main = df.Orchestrator.create(orchestrator_function)

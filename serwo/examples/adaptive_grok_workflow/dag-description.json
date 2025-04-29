@@ -1,0 +1,26 @@
+{
+    "WorkflowName": "AdaptiveGrokWorkflow",
+    "Nodes": [
+      {
+        "NodeId": "1",
+        "NodeName": "InitialCall",
+        "Path": "examples/adaptive_grok_workflow/src/initial_call",
+        "EntryPoint": "func.py",
+        "CSP": "Azure",
+        "MemoryInMB": 256
+      },
+      {
+        "NodeId": "2",
+        "NodeName": "AdaptiveCall",
+        "Path": "examples/adaptive_grok_workflow/src/adaptive_call",
+        "EntryPoint": "func.py",
+        "CSP": "Azure",
+        "MemoryInMB": 256
+      }
+    ],
+    "Edges": [
+      {
+        "InitialCall": ["AdaptiveCall"]
+      }
+    ]
+  }

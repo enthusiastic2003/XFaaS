@@ -12,28 +12,15 @@
       },
       "2": {
         "AWS": {
-          "Latency": 200,
-          "Cost": 8
+          "Latency": 100,
+          "Cost": 5
         },
         "Azure": {
-          "Latency": 120,
-          "Cost": 9
+          "Latency": 150,
+          "Cost": 4
         }
       }
-    },
-    "EdgeBenchmarks": {
-      "1": [
-        {
-          "2": {
-            "DataTransferSize": 25,
-            "Latencies": [
-              {"AWS": 30},
-              {"Azure": 40},
-              {"AWSToAzure": 120},
-              {"AzureToAWS": 110}
-            ]
-          }
-        }
-      ]
+
+
     }
   }

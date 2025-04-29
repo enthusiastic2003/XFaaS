@@ -28,9 +28,17 @@ class UserDag:
             # nodeID = "n" + str(index)
             nodeID = node["NodeId"]
             self.__nodeIDMap[node["NodeName"]] = nodeID
+
+            azure_location = node.get("AzureLocation", "northeurope")  # Default value if AzureLocation is missing
             # print(node)
             # __dag.add_node(nodeID, NodeName=node["NodeName"], pre="", ret=["yield ", "context.call_activity(" + node["NodeName"]  + ",$var$)"], var=generate_random_variable_name(), machine_list=[nodeID])
-            self.__dag.add_node(nodeID, NodeName=node["NodeName"], pre="", ret=["yield ", "context.call_activity(\"" + node["NodeName"]  + "\",$var$)"], var=self._generate_random_variable_name(), machine_list=[nodeID])
+            self.__dag.add_node(
+                nodeID, 
+                NodeName=node["NodeName"], 
+                pre="", 
+                ret=["yield ", "context.call_activity(\"" + node["NodeName"]  + "\",$var$)"], 
+                var=self._generate_random_variable_name(), machine_list=[nodeID],
+                AzureLocation = azure_location)
             index += 1
 
 
