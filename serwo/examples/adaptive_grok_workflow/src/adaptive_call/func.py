@@ -4,7 +4,7 @@ from groq import Groq
 from python.src.utils.classes.commons.serwo_objects import SerWOObject
 
 # --- Configuration ---
-API_KEY = "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"  # Ensure this environment variable is set securely
+API_KEY = ""  # Ensure this environment variable is set securely
 MODEL = "llama3-70b-8192"  # Adjust to your preferred Groq-supported model
 LATENCY_THRESHOLD_SEC = 6.0  # Adjust this threshold as needed
 

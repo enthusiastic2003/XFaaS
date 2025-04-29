@@ -4,7 +4,7 @@ from python.src.utils.classes.commons.serwo_objects import SerWOObject
 from groq import Groq
 
 # Initialize the Groq client with your API key
-client = Groq(api_key="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")
+client = Groq(api_key="")
 MODEL = "llama3-8b-8192"  # Replace with your desired model
 
 # --- Helper Function ---
