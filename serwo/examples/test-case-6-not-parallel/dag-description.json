@@ -1,10 +1,10 @@
 {
-  "WorkflowName": "ItenarySIX",
+  "WorkflowName": "ItenarySIXSecond",
   "Nodes": [
     {
       "NodeId": "1",
       "NodeName": "node1",
-      "Path": "examples/test-case-6/src/node1",
+      "Path": "examples/test-case-6-not-parallel/src/node1",
       "EntryPoint": "node1.py",
       "CSP": "Azure",
       "AzureLocation": "centralindia",
@@ -13,7 +13,7 @@
     {
       "NodeId": "2",
       "NodeName": "node2",
-      "Path": "examples/test-case-6/src/node2",
+      "Path": "examples/test-case-6-not-parallel/src/node2",
       "EntryPoint": "node2.py",
       "CSP": "Azure",
       "AzureLocation": "centralindia",
@@ -22,7 +22,7 @@
     {
       "NodeId": "3",
       "NodeName": "node3",
-      "Path": "examples/test-case-6/src/node3",
+      "Path": "examples/test-case-6-not-parallel/src/node3",
       "EntryPoint": "node3.py",
       "CSP": "Azure",
       "AzureLocation": "centralindia",
@@ -31,7 +31,7 @@
     {
       "NodeId": "4",
       "NodeName": "node4",
-      "Path": "examples/test-case-6/src/node4",
+      "Path": "examples/test-case-6-not-parallel/src/node4",
       "EntryPoint": "node4.py",
       "CSP": "Azure",
       "AzureLocation": "centralindia",
@@ -40,7 +40,7 @@
     {
       "NodeId": "5",
       "NodeName": "node5",
-      "Path": "examples/test-case-6/src/node5",
+      "Path": "examples/test-case-6-not-parallel/src/node5",
       "EntryPoint": "node5.py",
       "CSP": "Azure",
       "AzureLocation": "centralindia",
@@ -49,7 +49,7 @@
     {
       "NodeId": "6",
       "NodeName": "node6",
-      "Path": "examples/test-case-6/src/node6",
+      "Path": "examples/test-case-6-not-parallel/src/node6",
       "EntryPoint": "node6.py",
       "CSP": "Azure",
       "AzureLocation": "centralindia",
@@ -58,7 +58,7 @@
     {
       "NodeId": "7",
       "NodeName": "node7",
-      "Path": "examples/test-case-6/src/node7",
+      "Path": "examples/test-case-6-not-parallel/src/node7",
       "EntryPoint": "node7.py",
       "CSP": "Azure",
       "AzureLocation": "centralindia",
@@ -67,7 +67,7 @@
     {
       "NodeId": "8",
       "NodeName": "finalNode",
-      "Path": "examples/test-case-6/src/finalNode",
+      "Path": "examples/test-case-6-not-parallel/src/finalNode",
       "EntryPoint": "final.py",
       "CSP": "Azure",
       "AzureLocation": "centralindia",

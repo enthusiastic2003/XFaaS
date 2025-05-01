@@ -249,102 +249,147 @@ def copytree(src, dst, symlinks=False, ignore=None):
         else:
             shutil.copy2(s, d)
 
+# def fuse_graph(G, source, sink, CSP, cost_factor):
+#     G = update_graph_with_benchmark_data(G, CSP)
+
+#     # print(f'Full cost {CSP} = ',get_user_dag_cost(G,CSP))
+
+#     _, user_graph_latency = get_longest_path(G, source, sink)
+#     do_fusion = []
+#     user_dag_cost = get_user_dag_cost(G, CSP)
+#     current_dag_cost = user_dag_cost
+#     round = 0
+#     while True:
+#         if len(G.nodes) == 1:
+#             _, latency = get_longest_path(G, source, sink)
+#             cost = get_user_dag_cost(G, CSP)
+
+#             return do_fusion, latency, user_graph_latency, cost, user_dag_cost
+#         fusion_candidates = get_all_fusion_candidates(G, source, sink, round, CSP)
+#         round += 1
+#         node_to_candidates_map = defaultdict(list)
+
+#         # Get the reverse map: graph node name -> fusion_id
+#         for fusion_candidate in fusion_candidates.values():
+#             for node in fusion_candidate.get_nodes():
+#                 node_to_candidates_map[node].append(fusion_candidate.get_id())
+
+#         critical_path, critical_path_latency = get_longest_path(G, source, sink)
+
+#         fusion_candidates_on_path = get_fusion_candidates_on_path(critical_path, node_to_candidates_map)
+
+#         if not fusion_candidates_on_path:
+
+#             _, latency = get_longest_path(G, source, sink)
+#             cost = get_user_dag_cost(G, CSP)
+
+#             return do_fusion, latency, user_graph_latency, cost, user_dag_cost
+#         sorted_fusion_candidates = []
+#         positive = []
+#         negative = []
+#         for fusion_candidate_id in fusion_candidates_on_path:
+#             fusion_candidate = fusion_candidates[fusion_candidate_id]
+#             delta_latency = critical_path_latency - get_latency_for_fusion_candidate(G, fusion_candidate, source, sink,CSP)
+#             delta_cost = fusion_candidate.get_delta_cost(CSP)
+#             if delta_cost == 0:
+#                 positive.append((fusion_candidate.get_id(), 99999))
+#                 # sorted_fusion_candidates.append((fusion_candidate.get_id(), 99999))
+#             elif delta_latency > 0:
+#                 # sorted_fusion_candidates.append((fusion_candidate.get_id(), delta_latency/delta_cost))
+#                 if delta_cost < 0:
+#                     negative.append((fusion_candidate.get_id(), delta_latency/delta_cost))
+#                 else:
+#                     positive.append((fusion_candidate.get_id(), delta_latency/delta_cost))
+
+#         positive_sorted = sort_list(positive,True)
+#         negative_sorted = sort_list(negative,True)
+
+#         sorted_fusion_candidates = negative_sorted + positive_sorted
+#         if not sorted_fusion_candidates:
+
+#             _, latency = get_longest_path(G, source, sink)
+#             cost = get_user_dag_cost(G, CSP)
+
+#             return do_fusion, latency, user_graph_latency, cost, user_dag_cost
+#         # sorted_fusion_candidates = sort_list(sorted_fusion_candidates)
+#         no_fusion_candidate_feasible = True
+#         for fusion_candidate_tuple in sorted_fusion_candidates:
+#             fusion_candidate = fusion_candidates[fusion_candidate_tuple[0]]
+#             delta_latency = critical_path_latency - get_latency_for_fusion_candidate(G, fusion_candidate, source, sink,CSP)
+
+#         for fusion_candidate_tuple in sorted_fusion_candidates:
+#             fusion_candidate = fusion_candidates[fusion_candidate_tuple[0]]
+#             # if current_dag_cost + fusion_candidate.get_delta_cost(CSP) <= cost_factor * user_dag_cost:
+            
+#             if True:
+#                 current_dag_cost += fusion_candidate.get_delta_cost(CSP)
+#                 do_fusion.append(fusion_candidate)
+#                 update_god_list(fusion_candidate)
+#                 god_cost.append(current_dag_cost)
+
+#                 G = update_graph(G, fusion_candidate , CSP)
+
+
+#                 # Need to update source and sink
+#                 if source in fusion_candidate.get_nodes():
+#                     source = fusion_candidate.get_id()
+#                 if sink in fusion_candidate.get_nodes():
+#                     sink = fusion_candidate.get_id()
+
+#                 no_fusion_candidate_feasible = False
+#                 break
+#             else:
+#                 pass
+#         if no_fusion_candidate_feasible:
+
+#             _, latency = get_longest_path(G, source, sink)
+#             cost = get_user_dag_cost(G, CSP)
+
+#             return do_fusion, latency, user_graph_latency, cost, user_dag_cost
+
+
+# Always Fuse.
 def fuse_graph(G, source, sink, CSP, cost_factor):
     G = update_graph_with_benchmark_data(G, CSP)
-
-    # print(f'Full cost {CSP} = ',get_user_dag_cost(G,CSP))
 
     _, user_graph_latency = get_longest_path(G, source, sink)
     do_fusion = []
     user_dag_cost = get_user_dag_cost(G, CSP)
     current_dag_cost = user_dag_cost
     round = 0
+    
     while True:
         if len(G.nodes) == 1:
             _, latency = get_longest_path(G, source, sink)
             cost = get_user_dag_cost(G, CSP)
-
             return do_fusion, latency, user_graph_latency, cost, user_dag_cost
+        
         fusion_candidates = get_all_fusion_candidates(G, source, sink, round, CSP)
         round += 1
-        node_to_candidates_map = defaultdict(list)
-
-        # Get the reverse map: graph node name -> fusion_id
-        for fusion_candidate in fusion_candidates.values():
-            for node in fusion_candidate.get_nodes():
-                node_to_candidates_map[node].append(fusion_candidate.get_id())
-
-        critical_path, critical_path_latency = get_longest_path(G, source, sink)
-
-        fusion_candidates_on_path = get_fusion_candidates_on_path(critical_path, node_to_candidates_map)
-
-        if not fusion_candidates_on_path:
-
+        
+        # If no fusion candidates left, return results
+        if not fusion_candidates:
             _, latency = get_longest_path(G, source, sink)
             cost = get_user_dag_cost(G, CSP)
-
             return do_fusion, latency, user_graph_latency, cost, user_dag_cost
-        sorted_fusion_candidates = []
-        positive = []
-        negative = []
-        for fusion_candidate_id in fusion_candidates_on_path:
-            fusion_candidate = fusion_candidates[fusion_candidate_id]
-            delta_latency = critical_path_latency - get_latency_for_fusion_candidate(G, fusion_candidate, source, sink,CSP)
-            delta_cost = fusion_candidate.get_delta_cost(CSP)
-            if delta_cost == 0:
-                positive.append((fusion_candidate.get_id(), 99999))
-                # sorted_fusion_candidates.append((fusion_candidate.get_id(), 99999))
-            elif delta_latency > 0:
-                # sorted_fusion_candidates.append((fusion_candidate.get_id(), delta_latency/delta_cost))
-                if delta_cost < 0:
-                    negative.append((fusion_candidate.get_id(), delta_latency/delta_cost))
-                else:
-                    positive.append((fusion_candidate.get_id(), delta_latency/delta_cost))
+        
+        # MODIFICATION: Just take the first fusion candidate without any benefit analysis
+        fusion_candidate_id = list(fusion_candidates.keys())[0]
+        fusion_candidate = fusion_candidates[fusion_candidate_id]
+        
+        # Apply fusion
+        current_dag_cost += fusion_candidate.get_delta_cost(CSP)
+        do_fusion.append(fusion_candidate)
+        update_god_list(fusion_candidate)
+        god_cost.append(current_dag_cost)
 
-        positive_sorted = sort_list(positive,True)
-        negative_sorted = sort_list(negative,True)
+        G = update_graph(G, fusion_candidate, CSP)
 
-        sorted_fusion_candidates = negative_sorted + positive_sorted
-        if not sorted_fusion_candidates:
-
-            _, latency = get_longest_path(G, source, sink)
-            cost = get_user_dag_cost(G, CSP)
-
-            return do_fusion, latency, user_graph_latency, cost, user_dag_cost
-        # sorted_fusion_candidates = sort_list(sorted_fusion_candidates)
-        no_fusion_candidate_feasible = True
-        for fusion_candidate_tuple in sorted_fusion_candidates:
-            fusion_candidate = fusion_candidates[fusion_candidate_tuple[0]]
-            delta_latency = critical_path_latency - get_latency_for_fusion_candidate(G, fusion_candidate, source, sink,CSP)
-
-        for fusion_candidate_tuple in sorted_fusion_candidates:
-            fusion_candidate = fusion_candidates[fusion_candidate_tuple[0]]
-            if current_dag_cost + fusion_candidate.get_delta_cost(CSP) <= cost_factor * user_dag_cost:
-
-                current_dag_cost += fusion_candidate.get_delta_cost(CSP)
-                do_fusion.append(fusion_candidate)
-                update_god_list(fusion_candidate)
-                god_cost.append(current_dag_cost)
-
-                G = update_graph(G, fusion_candidate , CSP)
-
-
-                # Need to update source and sink
-                if source in fusion_candidate.get_nodes():
-                    source = fusion_candidate.get_id()
-                if sink in fusion_candidate.get_nodes():
-                    sink = fusion_candidate.get_id()
-
-                no_fusion_candidate_feasible = False
-                break
-            else:
-                pass
-        if no_fusion_candidate_feasible:
-
-            _, latency = get_longest_path(G, source, sink)
-            cost = get_user_dag_cost(G, CSP)
-
-            return do_fusion, latency, user_graph_latency, cost, user_dag_cost
+        # Update source and sink if needed
+        if source in fusion_candidate.get_nodes():
+            source = fusion_candidate.get_id()
+        if sink in fusion_candidate.get_nodes():
+            sink = fusion_candidate.get_id()
 
 def update_god_list(fusion_candidate):
     if len(god_list) == 0:
@@ -881,9 +926,10 @@ def generate_refactored_workflow(refactored_wf_id,fused_dir,fused_dag):
     # print(dag_json)
 
     try:
+        print('Not pushing to dynamo')
         #TODO - create table for refactored wf
-        dynPartiQLWrapper = PartiQLWrapper('workflow_refactored_table')
-        dynPartiQLWrapper.put(dag_json)
+        # dynPartiQLWrapper = PartiQLWrapper('workflow_refactored_table')
+        # dynPartiQLWrapper.put(dag_json)
     except ClientError as e:
         print(e)
         exit()
@@ -926,8 +972,8 @@ def generate_deployment_logs(left,user_dir,wf_id,refactored_wf_id):
 
     d['func_deployment_config'] = a
     try:
-        dynPartiQLWrapper = PartiQLWrapper('workflow_deployment_table')
-        dynPartiQLWrapper.put(d)
+        # dynPartiQLWrapper = PartiQLWrapper('workflow_deployment_table')
+        # dynPartiQLWrapper.put(d)
         print('====')
     except ClientError as e:
         print(e)
@@ -1060,8 +1106,12 @@ def push_user_dag_to_provenance(wf_id):
         user_workflow_item['wf_id'] = wf_id
         workflow_name = user_workflow_item["WorkflowName"]
 
-        dynPartiQLWrapper = PartiQLWrapper('workflow_user_table')
-        dynPartiQLWrapper.put(user_workflow_item)
+        print(f"Workflow Name: {workflow_name}")
+        print(f"Workflow ID: {wf_id}")
+
+        print("Not pushing to DynamoDB")
+        # dynPartiQLWrapper = PartiQLWrapper('workflow_user_table')
+        # dynPartiQLWrapper.put(user_workflow_item)
     except ClientError as e:
         print(e)
     print(":" * 80)

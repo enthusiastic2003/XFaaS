@@ -1,0 +1,12 @@
+
+
+groq
+
+azure-functions
+
+psutil
+
+azure-storage-queue==2.1.0
+
+azure-functions-durable
+

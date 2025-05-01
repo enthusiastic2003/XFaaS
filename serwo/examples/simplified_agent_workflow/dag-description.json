@@ -1,0 +1,15 @@
+{
+  "WorkflowName": "MehulWorkflow",
+  "Nodes": [
+    {
+      "NodeId": "1",
+      "NodeName": "StartWorkflow",
+      "Path": "examples/simplified_agent_workflow/src/start_workflow",
+      "EntryPoint": "func.py",
+      "CSP": "Azure",
+      "MemoryInMB": 128
+    }
+  ],
+  "Edges": [
+  ]
+}

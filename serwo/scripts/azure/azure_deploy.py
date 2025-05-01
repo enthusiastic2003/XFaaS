@@ -33,6 +33,7 @@ def get_resources():
 def deploy(storage,group,app,user_dir):
     print(f'Creating User app: {app}')
     command = f'az functionapp create --consumption-plan-location {location} --runtime {runtime} --runtime-version {runtime_version} --functions-version {functions_version} --name {app} --os-type {os_type} --storage-account {storage} -g {group}'
+    print("Command: "+ command)
     stream = os.popen(command)
     stream.close()
     sleep(30)
@@ -44,6 +45,20 @@ def deploy(storage,group,app,user_dir):
 
     print(f'User app created, deploying {app}')
     stream = os.popen(f'func azure functionapp publish {app}')
+
+    print("Deployment logs:")
+    for line in stream:
+        print(line.strip())
+        if 'Error' in line:
+            print("Error in deployment, please check the logs")
+            break
+        if 'Function Runtime Error' in line:
+            print("Function Runtime Error, please check the logs")
+            break
+        if 'Function App created' in line:
+            print("Function App created successfully")
+            break
+
     stream.close()
 
 

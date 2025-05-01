@@ -1,0 +1,5 @@
+{
+  "NodeBenchmarks": {
+    "1": {"AWS": {"Latency": 50, "Cost": 1},"Azure": {"Latency": 50, "Cost": 1}}
+  }
+}
