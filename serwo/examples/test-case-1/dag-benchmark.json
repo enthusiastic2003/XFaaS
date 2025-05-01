@@ -19,6 +19,16 @@
           "Latency": 150,
           "Cost": 4
         }
+      },
+      "3": {
+        "AWS": {
+          "Latency": 100,
+          "Cost": 5
+        },
+        "Azure": {
+          "Latency": 150,
+          "Cost": 4
+        }
       }
 
 

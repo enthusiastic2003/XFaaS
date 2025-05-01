@@ -1,0 +1,89 @@
+{
+  "WorkflowName": "ItenaryFIVEParallel",
+  "Nodes": [
+    {
+      "NodeId": "1",
+      "NodeName": "node1",
+      "Path": "examples/test-case-5/src/node1",
+      "EntryPoint": "node1.py",
+      "CSP": "Azure",
+      "AzureLocation": "centralindia",
+      "MemoryInMB": 128
+    },
+    {
+      "NodeId": "2",
+      "NodeName": "node2",
+      "Path": "examples/test-case-5/src/node2",
+      "EntryPoint": "node2.py",
+      "CSP": "Azure",
+      "AzureLocation": "centralindia",
+      "MemoryInMB": 128
+    },
+    {
+      "NodeId": "3",
+      "NodeName": "node3",
+      "Path": "examples/test-case-5/src/node3",
+      "EntryPoint": "node3.py",
+      "CSP": "Azure",
+      "AzureLocation": "centralindia",
+      "MemoryInMB": 128
+    },
+    {
+      "NodeId": "4",
+      "NodeName": "node4",
+      "Path": "examples/test-case-5/src/node4",
+      "EntryPoint": "node4.py",
+      "CSP": "Azure",
+      "AzureLocation": "centralindia",
+      "MemoryInMB": 128
+    },
+    {
+      "NodeId": "5",
+      "NodeName": "node5",
+      "Path": "examples/test-case-5/src/node5",
+      "EntryPoint": "node5.py",
+      "CSP": "Azure",
+      "AzureLocation": "centralindia",
+      "MemoryInMB": 128
+    },
+    {
+      "NodeId": "6",
+      "NodeName": "node6",
+      "Path": "examples/test-case-5/src/node6",
+      "EntryPoint": "node6.py",
+      "CSP": "Azure",
+      "AzureLocation": "centralindia",
+      "MemoryInMB": 128
+    },
+  
+    {
+      "NodeId": "7",
+      "NodeName": "finalNode",
+      "Path": "examples/test-case-5/src/finalNode",
+      "EntryPoint": "final.py",
+      "CSP": "Azure",
+      "AzureLocation": "centralindia",
+      "MemoryInMB": 128
+    }
+  ],
+  "Edges": [
+    {
+      "node1": ["node2", "node3", "node4", "node5", "node6"]
+    },
+    {
+      "node2": ["finalNode"]
+    },
+    {
+      "node3": ["finalNode"]
+    },
+    {
+      "node4": ["finalNode"]
+    },
+    {
+      "node5": ["finalNode"]
+    },
+    {
+      "node6": ["finalNode"]
+    }
+  ]
+}

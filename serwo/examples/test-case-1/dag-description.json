@@ -1,5 +1,5 @@
 {
-  "WorkflowName": "ring1",
+  "WorkflowName": "ItenaryONE",
   "Nodes": [
     {
       "NodeId": "1",
@@ -19,11 +19,24 @@
       "CSP": "Azure",
       "AzureLocation": "centralindia",
       "MemoryInMB": 128
+    },
+    
+    {
+      "NodeId": "3",
+      "NodeName": "FinalTask",
+      "Path": "examples/test-case-1/src/finalNode",
+      "EntryPoint": "final.py",
+      "CSP": "Azure",
+      "AzureLocation": "centralindia",
+      "MemoryInMB": 128
     }
   ],
   "Edges": [
     {
       "TaskA": ["TaskB"]
+    },
+    {
+      "TaskB": ["FinalTask"]
     }
   ]
 }

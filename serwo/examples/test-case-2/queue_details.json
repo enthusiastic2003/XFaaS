@@ -1,0 +1,4 @@
+{
+    "queue": "xfaas-logging-queue-rh735g2",
+    "connectionString": "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=xfaasstorage;AccountKey=K9juYVNksHxQzlooGhylToKxqmjr8LWn5SqcVb/tnajI9n6Is2LYbTJGqoEyEAfnmSUKyn0ACluq+AStJilx0Q==;BlobEndpoint=https://xfaasstorage.blob.core.windows.net/;FileEndpoint=https://xfaasstorage.file.core.windows.net/;QueueEndpoint=https://xfaasstorage.queue.core.windows.net/;TableEndpoint=https://xfaasstorage.table.core.windows.net/"
+}

@@ -1,0 +1,74 @@
+{
+  "NodeBenchmarks": {
+    "1": {
+      "AWS": {
+        "Latency": 100,
+        "Cost": 5
+      },
+      "Azure": {
+        "Latency": 150,
+        "Cost": 4
+      }
+    },
+    "2": {
+      "AWS": {
+        "Latency": 100,
+        "Cost": 5
+      },
+      "Azure": {
+        "Latency": 150,
+        "Cost": 4
+      }
+    },
+    "3": {
+      "AWS": {
+        "Latency": 100,
+        "Cost": 5
+      },
+      "Azure": {
+        "Latency": 150,
+        "Cost": 4
+      }
+    },
+    "4": {
+      "AWS": {
+        "Latency": 100,
+        "Cost": 5
+      },
+      "Azure": {
+        "Latency": 150,
+        "Cost": 4
+      }
+    },
+    "5": {
+      "AWS": {
+        "Latency": 100,
+        "Cost": 5
+      },
+      "Azure": {
+        "Latency": 150,
+        "Cost": 4
+      }
+    },
+    "6": {
+      "AWS": {
+        "Latency": 100,
+        "Cost": 5
+      },
+      "Azure": {
+        "Latency": 150,
+        "Cost": 4
+      }
+    },
+    "7": {
+      "AWS": {
+        "Latency": 100,
+        "Cost": 5
+      },
+      "Azure": {
+        "Latency": 150,
+        "Cost": 4
+      }
+    }
+  }
+}

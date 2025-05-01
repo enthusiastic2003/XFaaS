@@ -1,36 +1,48 @@
 from python.src.utils.classes.commons.serwo_objects import SerWOObject
+from groq import Groq
+import json
+import logging
 
-from python.src.utils.classes.commons.serwo_objects import SerWOObject
-
-def function(serwoObject) -> SerWOObject:
+def function(serwoObject ) -> SerWOObject:
     try:
-        # Extract input payload
+        client = Groq(api_key="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")
+
         body = serwoObject.get_body()
-        name = "stranger"
+        place = body.get("place", "World")
 
-        # Body could be str or dict (depending on curl input)
-        if isinstance(body, dict) and "name" in body:
-            name = body["name"]
-        elif isinstance(body, str):
-            try:
-                import json
-                body_json = json.loads(body)
-                name = body_json.get("name", "stranger")
-            except:
-                pass  # fallback to default
+        places_prompt = (
+            f"You are an API returning data. Respond with ONLY a valid JSON object and nothing else. "
+            f"Suggest exactly 1 must-visit place in {place}. "
+            f"The JSON must have one key: 'places', and the value must be a list containing a single string. "
+            f"Example: {{\"places\": [\"Taj Mahal\"]}}. Do not include explanations, formatting, or any additional text."
+        )
 
-        # Compose response
-        message = f"Hello, {name}!"
 
-        # Construct return object
-        return_object = SerWOObject(
-            body={"name": message},
+        logging.info(f"[Step 1] Prompting Groq for place suggestions for: {place}")
+
+        response = client.chat.completions.create(
+            model="llama3-8b-8192",
+            messages=[{"role": "system", "content": places_prompt}]
+        )
+
+        places_response = response.choices[0].message.content
+        logging.info(f"[Step 2] Received response: {places_response}")
+
+        places_json = json.loads(places_response)
+        logging.info(f"[Step 2] Parsed JSON: {str(places_json)}")
+        places_json['split_iterary'] = []
+
+        logging.info(f"[Step 3] Final JSON to pass forward: {str(places_json)}")
+
+        newbody =  SerWOObject(
+            body=places_json,
             metadata=serwoObject.get_metadata()
         )
-        return_object.set_basepath(serwoObject.get_basepath())
 
-        return return_object
+        newbody.set_basepath(serwoObject.get_basepath())
+
+        return newbody
 
     except Exception as e:
-        print("Exception in greeter:", str(e))
+        logging.info("Exception in place-suggestion function: " + str(e))
         return SerWOObject(error={"message": str(e)})

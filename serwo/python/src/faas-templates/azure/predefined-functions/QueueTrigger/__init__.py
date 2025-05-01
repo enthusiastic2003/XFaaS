@@ -17,7 +17,7 @@ def get_app_name():
     data = json.loads(f.read())
     return data['app_name']
 
-app_name = 'serwoAdaptiveGrokWorkflow903607'
+app_name = 'serwoItenarySIXParallel257767'
 
 async def main(msg: func.QueueMessage,starter: str) -> None:
     logging.info('Python queue trigger function processed a queue item: %s', msg.get_body().decode('utf-8'))
