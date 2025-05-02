@@ -1,5 +1,5 @@
 {
-  "WorkflowName": "FuckMe",
+  "WorkflowName": "DSAWorkflow",
   "Nodes": [
     {
       "NodeId": "1",

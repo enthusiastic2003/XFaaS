@@ -2,7 +2,7 @@ import time
 import json
 from python.src.utils.classes.commons.serwo_objects import SerWOObject
 # No cost calculator needed here unless we assign a cost to this node itself
-
+import logging
 
 
 def function(serwoObject) -> SerWOObject:
@@ -39,6 +39,8 @@ def function(serwoObject) -> SerWOObject:
     initial_state["node_metrics"].append({
         "node": "StartWorkflow", "duration_sec": node_duration, "cost": node_cost, "memory_mb": 128 # Assume base memory
     })
+
+    logging.info("body: %s", json.dumps(initial_state, indent=2))
 
     obj =  SerWOObject(body=initial_state, metadata=metadata)
     obj.set_basepath(serwoObject.get_basepath())  # Using the base path from the first object
