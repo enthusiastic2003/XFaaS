@@ -16,10 +16,10 @@ def function(serwoObject) -> SerWOObject:
     body = serwoObject.get_body() if serwoObject.get_body() else {}
     metadata = serwoObject.get_metadata()
     start_node_time = time.time() # Minimal time for this node
-
+    logging.info('body: %s', json.dumps(body, indent=2))
     problem_description = body.get("problem_description", DEFAULT_PROBLEM).strip()
-
-    print(f"StartWorkflow: Starting with Problem:\n{problem_description[:200]}...")
+    
+    logging.info(f"StartWorkflow: Starting with Problem:\n{problem_description[:200]}...")
 
     # Initialize workflow state
     initial_state = {
